@@ -1,0 +1,30 @@
+"use client";
+
+const bubbles = [
+  { size: 80, top: "10%", left: "10%", color: "#fbcfe8", delay: 0 },
+  { size: 120, top: "60%", left: "80%", color: "#c7d2fe", delay: 2 },
+  { size: 60, top: "40%", left: "20%", color: "#bbf7d0", delay: 4 },
+  { size: 100, top: "80%", left: "50%", color: "#fde68a", delay: 6 },
+  { size: 70, top: "20%", left: "70%", color: "#fecaca", delay: 8 },
+];
+
+export default function BubbleBackground() {
+  return (
+    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+      {bubbles.map((b, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full opacity-40 animate-float"
+          style={{
+            width: b.size,
+            height: b.size,
+            top: b.top,
+            left: b.left,
+            background: b.color,
+            animationDelay: `${b.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
